@@ -320,7 +320,7 @@
   container.innerHTML = '<div class="col-span-full text-center py-10 text-[#41431B] font-bold">⏳ Sedang menarik iklan dari Pasar Orang Melaka...</div>';
 
   // Gantikan dengan URL Web App baru dari Langkah 1
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzlOTIa5N8vawd6kcuE17-Lp24sW4mD2DGZuSOCY3PXBzSNLOJAPYzgtZAE62_hyC54ow/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyenrwicMZxmETuHiooPyUJxBUGWA85hbegJwpjcjZLUrb6cchx6mZDWQfRv6Z_0bNqAQ/exec';
   
   try {
     const response = await fetch(scriptURL);
@@ -610,7 +610,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
     btn.textContent = 'Memadam...';
     
     // Kita hantar arahan delete ke Apps Script menggunakan Title iklan
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzlOTIa5N8vawd6kcuE17-Lp24sW4mD2DGZuSOCY3PXBzSNLOJAPYzgtZAE62_hyC54ow/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyenrwicMZxmETuHiooPyUJxBUGWA85hbegJwpjcjZLUrb6cchx6mZDWQfRv6Z_0bNqAQ/exec';
     const deleteURL = `${scriptURL}?action=delete&title=${encodeURIComponent(currentViewingAd.title)}`;
 
     try {
@@ -637,7 +637,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
       e.preventDefault();
       
       // Pastikan URL ini adalah URL Web App yang anda copy dari Google Apps Script
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzlOTIa5N8vawd6kcuE17-Lp24sW4mD2DGZuSOCY3PXBzSNLOJAPYzgtZAE62_hyC54ow/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyenrwicMZxmETuHiooPyUJxBUGWA85hbegJwpjcjZLUrb6cchx6mZDWQfRv6Z_0bNqAQ/exec';
       
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
