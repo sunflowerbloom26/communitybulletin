@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gelugor-USM Community Bulletin Board</title>
+  <title>Community Bulletin Board</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="/_sdk/data_sdk.js"></script>
@@ -42,36 +42,68 @@
   <style>body { box-sizing: border-box; }</style>
  </head>
  <body class="h-full">
-  <div id="app" class="h-full overflow-auto" style="background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);"><!-- Header -->
-   <header class="bg-amber-900/90 backdrop-blur-sm shadow-lg sticky top-0 z-40">
+  <div id="app" class="h-full overflow-auto" style="background-color: #F8F9FA;"> <!-- Header -->
+   <header class="bg-[#41431B] shadow-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-4">
      <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
-       <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center shadow-md"><span class="text-2xl">📌</span>
-       </div>
+       <div class="w-12 h-12 bg-[#AEB784] rounded-lg flex items-center justify-center shadow-md">
+  <span class="text-2xl">📌</span>
+</div>
        <div>
-        <h1 id="board-title" class="text-2xl font-extrabold text-amber-50">Gelugor-USM Community Bulletin Board</h1>
-        <p id="board-subtitle" class="text-amber-200 text-sm">Digital marketplace to find/advertise our local products and services</p>
+        <h1 id="board-title" class="text-2xl font-extrabold text-amber-50">Pasar Orang Melaka</h1>
+        <p id="board-subtitle" class="text-amber-200 text-sm">Hub digital cari-cari barang dan servis anak jati Melaka</p>
        </div>
-      </div><button id="post-ad-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-full font-bold shadow-lg transition-all flex items-center gap-2"> <span class="text-lg">+</span> Post Ad </button>
+      </div><button id="post-ad-btn" class="bg-[#AEB784] hover:bg-[#96a06b] text-white px-5 py-2.5 rounded-full font-bold shadow-md transition-all flex items-center gap-2"> 
+  <span class="text-lg">+</span> Tampal Iklan 
+</button>
      </div>
     </div>
    </header><!-- Main Content -->
    <main class="max-w-6xl mx-auto px-4 py-6"><!-- Category Filter -->
     <div id="categories-section" class="mb-8">
-     <h2 class="text-amber-100 font-bold text-lg mb-4">Browse by Category</h2>
-     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3"><button data-category="all" class="category-btn category-card bg-amber-50 hover:bg-amber-100 p-4 rounded-xl shadow-md flex flex-col items-center gap-2 border-2 border-transparent"> <span class="text-3xl">🏠</span> <span class="text-xs font-bold text-amber-900 text-center">All Ads</span> </button> <button data-category="rentals" class="category-btn category-card bg-amber-50 hover:bg-amber-100 p-4 rounded-xl shadow-md flex flex-col items-center gap-2 border-2 border-transparent"> <span class="text-3xl">🏡</span> <span class="text-xs font-bold text-amber-900 text-center">Rentals</span> </button> <button data-category="food" class="category-btn category-card bg-amber-50 hover:bg-amber-100 p-4 rounded-xl shadow-md flex flex-col items-center gap-2 border-2 border-transparent"> <span class="text-3xl">🍜</span> <span class="text-xs font-bold text-amber-900 text-center">Food Stalls</span> </button> <button data-category="jobs" class="category-btn category-card bg-amber-50 hover:bg-amber-100 p-4 rounded-xl shadow-md flex flex-col items-center gap-2 border-2 border-transparent"> <span class="text-3xl">💼</span> <span class="text-xs font-bold text-amber-900 text-center">Jobs &amp; Services</span> </button> <button data-category="transport" class="category-btn category-card bg-amber-50 hover:bg-amber-100 p-4 rounded-xl shadow-md flex flex-col items-center gap-2 border-2 border-transparent"> <span class="text-3xl">🚗</span> <span class="text-xs font-bold text-amber-900 text-center">Transport</span> </button> <button data-category="others" class="category-btn category-card bg-amber-50 hover:bg-amber-100 p-4 rounded-xl shadow-md flex flex-col items-center gap-2 border-2 border-transparent"> <span class="text-3xl">📦</span> <span class="text-xs font-bold text-amber-900 text-center">Others</span> </button>
+     <h2 class="text-[#41431B] font-extrabold text-lg mb-4">Cari ikut kategori</h2>
+     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+      <button data-category="all" class="category-btn category-card bg-white hover:bg-[#E3DBBB] p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 border-2 border-transparent transition-all"> 
+        <span class="text-3xl">🏠</span> 
+        <span class="text-xs font-bold text-[#41431B] text-center">Semua Jenis Iklan</span> 
+      </button> 
+      
+      <button data-category="rentals" class="category-btn category-card bg-white hover:bg-[#E3DBBB] p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 border-2 border-transparent transition-all"> 
+        <span class="text-3xl">🏡</span> 
+        <span class="text-xs font-bold text-[#41431B] text-center">Sewa Rumah/Bilik</span> 
+      </button> 
+      
+      <button data-category="food" class="category-btn category-card bg-white hover:bg-[#E3DBBB] p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 border-2 border-transparent transition-all"> 
+        <span class="text-3xl">🍜</span> 
+        <span class="text-xs font-bold text-[#41431B] text-center">Kedai Makan</span> 
+      </button> 
+      
+      <button data-category="jobs" class="category-btn category-card bg-white hover:bg-[#E3DBBB] p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 border-2 border-transparent transition-all"> 
+        <span class="text-3xl">💼</span> 
+        <span class="text-xs font-bold text-[#41431B] text-center">Peluang Pekerjaan &amp; Services</span> 
+      </button> 
+      
+      <button data-category="transport" class="category-btn category-card bg-white hover:bg-[#E3DBBB] p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 border-2 border-transparent transition-all"> 
+        <span class="text-3xl">🚗</span> 
+        <span class="text-xs font-bold text-[#41431B] text-center">Pengangkutan</span> 
+      </button> 
+      
+      <button data-category="others" class="category-btn category-card bg-white hover:bg-[#E3DBBB] p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 border-2 border-transparent transition-all"> 
+        <span class="text-3xl">📦</span> 
+        <span class="text-xs font-bold text-[#41431B] text-center">Lain Lain</span> 
+      </button>
      </div>
     </div><!-- Ads Count -->
     <div class="flex items-center justify-between mb-4">
-     <h2 id="ads-heading" class="text-amber-100 font-bold text-lg">All Advertisements</h2><span id="ads-count" class="bg-amber-800/50 text-amber-100 px-3 py-1 rounded-full text-sm">0 ads</span>
+     <h2 id="ads-heading" class="text-[#41431B] font-extrabold text-lg">Semua Jenis Iklan</h2><span id="ads-count" class="bg-[#AEB784] hover:bg-[#96a06b] text-white px-5 py-2.5 rounded-full font-bold shadow-md transition-all flex items-center gap-2">0 ads</span>
     </div><!-- Bulletin Board -->
-    <div id="bulletin-board" class="bg-amber-800/30 backdrop-blur-sm rounded-2xl p-6 min-h-96 border-4 border-amber-900/50 shadow-inner">
+    <div id="bulletin-board" class="bg-[#AEB784]/20 backdrop-blur-sm rounded-2xl p-6 min-h-96 border-4 border-[#41431B]/30 shadow-inner">
      <div id="ads-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Ads will be rendered here -->
      </div>
      <div id="empty-state" class="hidden flex-col items-center justify-center py-16 text-center"><span class="text-6xl mb-4">📋</span>
-      <h3 class="text-amber-100 font-bold text-xl mb-2">No ads yet!</h3>
-      <p class="text-amber-200 mb-4">Be the first to post an advertisement</p><button id="empty-post-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-full font-bold transition-all"> Post Your First Ad </button>
+      <h3 class="text-[#41431B] font-extrabold text-lg">Belum ada iklan 😕</h3>
+      <p class="text-[#41431B] font-extrabold text-lg">Cepat jadi orang pertama yang letakkan iklan di sini!</p><button id="empty-post-btn" class="bg-[#AEB784] hover:bg-[#96a06b] text-white px-5 py-2.5 rounded-full font-bold shadow-md transition-all flex items-center gap-2"> Post Your First Ad </button>
      </div>
     </div><!-- Limit Warning -->
     <div id="limit-warning" class="hidden mt-4 bg-red-500/90 text-white px-4 py-3 rounded-lg text-center font-semibold">
@@ -81,44 +113,77 @@
    <div id="post-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
     <div class="modal-overlay absolute inset-0 bg-black/60" id="modal-backdrop"></div>
     <div class="relative bg-amber-50 rounded-2xl shadow-2xl w-full max-w-lg max-h-[90%] overflow-auto">
-     <div class="sticky top-0 bg-amber-900 text-white p-4 rounded-t-2xl flex items-center justify-between">
-      <h3 class="font-bold text-lg">📌 Post New Advertisement</h3><button id="close-modal" class="w-8 h-8 rounded-full bg-amber-800 hover:bg-amber-700 flex items-center justify-center transition-all">✕</button>
-     </div>
+     <div class="sticky top-0 bg-[#41431B] text-white p-4 rounded-t-2xl flex items-center justify-between">
+    <h3 class="font-bold text-lg">📌 Tampal Iklan Baru</h3>
+    <button id="close-modal" class="w-8 h-8 rounded-full bg-black/20 hover:bg-black/40 flex items-center justify-center transition-all">✕</button>
+</div>
      <form id="ad-form" class="p-6 space-y-4">
-      <div><label for="ad-category" class="block text-amber-900 font-bold mb-1 text-sm">Category *</label> <select id="ad-category" required class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none bg-white"> <option value="">Select category...</option> <option value="rentals">🏡 House &amp; Room Rentals</option> <option value="food">🍜 Food Stalls</option> <option value="jobs">💼 Jobs &amp; Services</option> <option value="transport">🚗 Transport</option> <option value="others">📦 Others</option> </select>
-      </div>
-      <div><label for="ad-title" class="block text-amber-900 font-bold mb-1 text-sm">Title *</label> <input type="text" id="ad-title" required maxlength="60" placeholder="e.g., Room for Rent Near Market" class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none">
-      </div>
-      <div><label for="ad-description" class="block text-amber-900 font-bold mb-1 text-sm">Description *</label> <textarea id="ad-description" required rows="3" maxlength="300" placeholder="Describe your ad in detail..." class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none resize-none"></textarea>
+      <div>
+    <label for="ad-category" class="block text-[#41431B] font-bold mb-1 text-sm">Category *</label>
+    <select id="ad-category" required class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none bg-white text-gray-800">
+      <option value="">Pilih Kategori...</option>
+      <option value="rentals">🏡 Rumah &amp; Bilik Sewa</option>
+      <option value="food">🍜 Kedai Makan</option>
+      <option value="jobs">💼 Peluang Pekerjaan &amp; Servis</option>
+      <option value="transport">🚗 Transport</option>
+      <option value="others">📦 Lain-lain</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="ad-title" class="block text-[#41431B] font-bold mb-1 text-sm">Title *</label>
+    <input type="text" id="ad-title" required maxlength="60" placeholder="Contoh : Rumah Sewa untuk pelajar" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
+  </div>
+
+  <div>
+    <label for="ad-description" class="block text-[#41431B] font-bold mb-1 text-sm">Description *</label>
+    <textarea id="ad-description" required rows="3" maxlength="300" placeholder="Describe your ad in detail..." class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none resize-none text-gray-800"></textarea>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4">
+    <div>
+      <label for="ad-price" class="block text-[#41431B] font-bold mb-1 text-sm">Price</label>
+      <input type="text" id="ad-price" placeholder="e.g., RM500/month" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
+    </div>
+    <div>
+      <label for="ad-location" class="block text-[#41431B] font-bold mb-1 text-sm">Location</label>
+      <input type="text" id="ad-location" placeholder="e.g., Taman Nuri" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
+    </div>
+  </div>
+
+  <div class="border-t border-gray-200 pt-4">
+    <p class="text-[#41431B] font-bold text-sm mb-3 uppercase tracking-wider">Contact Information</p>
+    <div class="space-y-3">
+      <div>
+        <label for="ad-name" class="block text-[#41431B] font-bold mb-1 text-sm">Your Name *</label>
+        <input type="text" id="ad-name" required placeholder="Full name" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
       </div>
       <div class="grid grid-cols-2 gap-4">
-       <div><label for="ad-price" class="block text-amber-900 font-bold mb-1 text-sm">Price</label> <input type="text" id="ad-price" placeholder="e.g., $500/month" class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none">
-       </div>
-       <div><label for="ad-location" class="block text-amber-900 font-bold mb-1 text-sm">Location</label> <input type="text" id="ad-location" placeholder="e.g., Downtown" class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none">
-       </div>
-      </div>
-      <div class="border-t border-amber-200 pt-4">
-       <p class="text-amber-700 font-bold text-sm mb-3">Contact Information</p>
-       <div class="space-y-3">
-        <div><label for="ad-name" class="block text-amber-900 font-bold mb-1 text-sm">Your Name *</label> <input type="text" id="ad-name" required placeholder="Full name" class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none">
+        <div>
+          <label for="ad-phone" class="block text-[#41431B] font-bold mb-1 text-sm">Phone *</label>
+          <input type="tel" id="ad-phone" required placeholder="e.g, 012-24025212" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
         </div>
-        <div class="grid grid-cols-2 gap-4">
-         <div><label for="ad-phone" class="block text-amber-900 font-bold mb-1 text-sm">Phone *</label> <input type="tel" id="ad-phone" required placeholder="Phone number" class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none">
-         </div>
-         <div><label for="ad-email" class="block text-amber-900 font-bold mb-1 text-sm">Email</label> <input type="email" id="ad-email" placeholder="Email address" class="w-full px-4 py-2.5 rounded-lg border-2 border-amber-200 focus:border-emerald-500 focus:outline-none">
-         </div>
+        <div>
+          <label for="ad-email" class="block text-[#41431B] font-bold mb-1 text-sm">Email</label>
+          <input type="email" id="ad-email" placeholder="Email address" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
         </div>
-       </div>
       </div>
-      <div class="flex gap-3 pt-2"><button type="button" id="cancel-btn" class="flex-1 px-4 py-3 rounded-lg border-2 border-amber-300 text-amber-700 font-bold hover:bg-amber-100 transition-all">Cancel</button> <button type="submit" id="submit-btn" class="flex-1 px-4 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition-all flex items-center justify-center gap-2"> <span id="submit-text">Post Ad</span> <span id="submit-loader" class="hidden">⏳</span> </button>
-      </div>
+    </div>
+  </div>
+      <div class="flex gap-3 pt-2">
+    <button type="button" id="cancel-btn" class="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 text-gray-700 font-bold hover:bg-gray-100 transition-all">Cancel</button>
+    <button type="submit" id="submit-btn" class="flex-1 px-4 py-3 rounded-lg bg-[#AEB784] hover:bg-[#96a06b] text-white font-bold transition-all flex items-center justify-center gap-2">
+        <span id="submit-text">Post Ad</span>
+        <span id="submit-loader" class="hidden">⏳</span>
+    </button>
+</div>
      </form>
     </div>
    </div><!-- View Ad Modal -->
    <div id="view-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
     <div class="modal-overlay absolute inset-0 bg-black/60" id="view-backdrop"></div>
     <div class="relative bg-amber-50 rounded-2xl shadow-2xl w-full max-w-lg max-h-[90%] overflow-auto">
-     <div id="view-header" class="sticky top-0 bg-amber-900 text-white p-4 rounded-t-2xl flex items-center justify-between">
+     <div id="view-header" class="sticky top-0 bg-[#41431B] text-white p-4 rounded-t-2xl flex items-center justify-between">
       <div class="flex items-center gap-2"><span id="view-category-icon" class="text-2xl">📌</span> <span id="view-category-name" class="font-semibold text-sm bg-amber-800 px-2 py-1 rounded">Category</span>
       </div><button id="close-view" class="w-8 h-8 rounded-full bg-amber-800 hover:bg-amber-700 flex items-center justify-center transition-all">✕</button>
      </div>
@@ -249,15 +314,47 @@
       }
     };
 
-    async function initDataSdk() {
-      if (window.dataSdk) {
-        const result = await window.dataSdk.init(dataHandler);
-        if (!result.isOk) {
-          console.error('Failed to initialize data SDK');
-        }
-      }
-    }
-    initDataSdk();
+   async function fetchAds() {
+  const container = document.getElementById('ads-container');
+  // Tunjukkan mesej loading sementara menunggu data
+  container.innerHTML = '<div class="col-span-full text-center py-10 text-[#41431B] font-bold">⏳ Sedang menarik iklan dari Pasar Orang Melaka...</div>';
+
+  // Gantikan dengan URL Web App baru dari Langkah 1
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw0lSCoDRVVl6WeyO15d77D0zChDeBwBgB-KX8y7Cb8WeN3vOdS-lL05Cv6sDGFuMVNlw/exec';
+  
+  try {
+    const response = await fetch(scriptURL);
+    const data = await response.json();
+    
+    console.log("Data diterima:", data); // Untuk Farah check di Console (F12)
+
+    // Tapis iklan yang statusnya 'Approved'
+    // Kita guna .trim() untuk buang ruang kosong yang terselip
+    const approvedAds = data.filter(ad => 
+      ad.status && ad.status.toString().toLowerCase().trim() === 'approved'
+    );
+    
+    allAds = approvedAds.map((ad, index) => ({
+      ...ad,
+      __backendId: index.toString(),
+      // Gunakan created_at untuk renderAds()
+      created_at: ad.timestamp || new Date().toISOString()
+    }));
+    
+    // PENTING: Padamkan mesej loading sebelum render iklan
+    container.innerHTML = ''; 
+    
+    renderAds();
+    updateAdsCount();
+    checkLimit();
+
+  } catch (error) {
+    console.error('Gagal menarik data. Sila refresh semula', error);
+  }
+}
+
+    // Jalankan fungsi fetchAds sebaik sahaja page dibuka
+    fetchAds();
 
     // Render ads based on current filter
     function renderAds() {
@@ -312,18 +409,18 @@
           card.innerHTML = `
             <div class="pin" style="background: ${pinColor};"></div>
             <div class="p-4 pt-5">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="text-xl">${cat.icon}</span>
-                <span class="text-xs font-bold px-2 py-1 rounded-full" style="background: ${cat.colors[4]}; color: ${cat.colors[2]};">${cat.name}</span>
-              </div>
-              <h3 class="ad-title font-bold text-amber-900 mb-2 line-clamp-2">${ad.title}</h3>
-              <p class="ad-description text-amber-700 text-sm mb-3 line-clamp-2">${ad.description.length > 80 ? ad.description.substring(0, 80) + '...' : ad.description}</p>
-              <div class="flex items-center justify-between text-xs">
-                <span class="ad-price font-bold text-emerald-600">💰 ${ad.price || 'Contact for price'}</span>
-                <span class="ad-location text-amber-500">📍 ${ad.location || 'Not specified'}</span>
-              </div>
+            <div class="flex items-center gap-2 mb-2">
+               <span class="text-xl">${cat.icon}</span>
+               <span class="text-xs font-bold px-2 py-1 rounded-full" style="background: ${cat.colors[4]}; color: ${cat.colors[2]};">${cat.name}</span>
             </div>
-          `;
+            <h3 class="ad-title font-bold text-[#41431B] mb-2 line-clamp-2">${ad.title}</h3>
+            <p class="ad-description text-gray-700 text-sm mb-3 line-clamp-2">${ad.description}</p>
+            <div class="flex items-center justify-between text-xs">
+               <span class="ad-price font-bold text-emerald-700">💰 ${ad.price || 'Contact for price'}</span>
+               <span class="ad-location text-gray-500 font-semibold">📍 ${ad.location || 'Not specified'}</span>
+            </div>
+            </div>
+            `;
           card.addEventListener('click', () => openViewModal(ad));
           container.appendChild(card);
         }
@@ -358,25 +455,29 @@
     }
 
     // Category filter buttons
-    document.querySelectorAll('.category-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentFilter = btn.dataset.category;
-        
-        // Update active state
-        document.querySelectorAll('.category-btn').forEach(b => {
-          b.classList.remove('border-emerald-500', 'bg-emerald-100');
-          b.classList.add('border-transparent');
-        });
-        btn.classList.add('border-emerald-500', 'bg-emerald-100');
-        btn.classList.remove('border-transparent');
-        
-        renderAds();
-        updateAdsCount();
-      });
+    // Kemaskini bahagian event listener untuk category buttons
+document.querySelectorAll('.category-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentFilter = btn.dataset.category;
+    
+    // Reset semua butang kepada rupa asal (putih/clean)
+    document.querySelectorAll('.category-btn').forEach(b => {
+      b.classList.remove('border-[#AEB784]', 'bg-[#AEB784]/10'); // Buang warna active lama
+      b.classList.add('border-transparent', 'bg-white');
     });
 
-    // Set initial active category
-    document.querySelector('[data-category="all"]').classList.add('border-emerald-500', 'bg-emerald-100');
+    // Set butang yang diklik kepada warna Sage Green (Active State)
+    btn.classList.add('border-[#AEB784]', 'bg-[#AEB784]/10'); 
+    btn.classList.remove('border-transparent', 'bg-white');
+    
+    renderAds();
+    updateAdsCount();
+  });
+});
+
+// Set butang "All" sebagai active secara default masa mula-mula load
+document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]', 'bg-[#AEB784]/10');
+
 
     // Modal controls
     const postModal = document.getElementById('post-modal');
@@ -399,6 +500,7 @@
 
     function openViewModal(ad) {
       currentViewingAd = ad;
+
       const cat = categoryInfo[ad.category] || categoryInfo.others;
       
       document.getElementById('view-category-icon').textContent = cat.icon;
@@ -408,7 +510,7 @@
       document.getElementById('view-price').textContent = ad.price || 'Contact for price';
       document.getElementById('view-location').textContent = ad.location || 'Not specified';
       document.getElementById('view-contact-name').textContent = ad.contact_name;
-      document.getElementById('view-contact-phone').textContent = ad.contact_phone;
+      document.getElementById('view-contact-phone').textContent = ad.phone;
       
       const emailRow = document.getElementById('view-email-row');
       if (ad.contact_email) {
@@ -418,6 +520,35 @@
         emailRow.classList.add('hidden');
       }
       
+// --- BAHAGIAN WHATSAPP ---
+    const phone = ad.phone ? ad.phone.toString() : '';
+    // Buang simbol bukan nombor (seperti +, - atau ruang)
+    const cleanPhone = phone.replace(/\D/g, '');
+    // Tambah kod negara 60 jika pengguna tak masukkan
+    const whatsappPhone = cleanPhone.startsWith('60') ? cleanPhone : '60' + cleanPhone;
+    
+    const phoneElement = document.getElementById('view-contact-phone');
+    if (phone) {
+        phoneElement.innerHTML = `<a href="https://wa.me/${whatsappPhone}" target="_blank" class="text-emerald-700 decoration-2 font-bold hover:text-emerald-900 transition-all">
+            ${phone} (Klik untuk WhatsApp)
+        </a>`;
+    } else {
+        phoneElement.textContent = 'Tiada Nombor';
+    }
+
+    // --- BAHAGIAN GOOGLE MAPS ---
+    const location = ad.location || '';
+    const locationElement = document.getElementById('view-location');
+    if (location && location !== '-') {
+        // Encode lokasi supaya selamat masuk dalam URL
+        const encodedLocation = encodeURIComponent(location + " Melaka");
+        locationElement.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodedLocation}" target="_blank" class="text-blue-700 decoration-2 font-bold hover:text-blue-900 transition-all">
+            📍 ${location} (Klik untuk ke Google Maps)
+        </a>`;
+    } else {
+        locationElement.textContent = 'Tidak Dinyatakan';
+    }
+
       const date = new Date(ad.created_at);
       document.getElementById('view-date').textContent = `Posted on: ${date.toLocaleDateString('en-US', { 
         year: 'numeric', month: 'long', day: 'numeric' 
@@ -426,7 +557,24 @@
       document.getElementById('delete-confirm').classList.add('hidden');
       viewModal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+
+      const urlParams = new URLSearchParams(window.location.search);
+    const isAdmin = urlParams.get('admin') === 'farahmelaka'; // 'farahmelaka' adalah kunci rahsia anda
+
+    const deleteBtn = document.getElementById('view-delete-btn');
+    
+    // 2. Tunjukkan butang Delete HANYA jika kunci betul
+    if (isAdmin) {
+        deleteBtn.classList.remove('hidden');
+    } else {
+        deleteBtn.classList.add('hidden');
     }
+    
+    document.getElementById('delete-confirm').classList.add('hidden');
+    viewModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+  
 
     function closeViewModal() {
       viewModal.classList.add('hidden');
@@ -478,23 +626,19 @@
     document.getElementById('ad-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      if (!window.dataSdk) return;
-      
-      if (allAds.length >= 999) {
-        showToast('Maximum limit reached. Delete some ads first.');
-        return;
-      }
+      // Pastikan URL ini adalah URL Web App yang anda copy dari Google Apps Script
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyBNvZs8dnbxzJvS9hbYzfrIPbLJn9RuLQyK1dzMgLxmvSuQQ1p-QGVt_IZvgSvFGBV3A/exec';
       
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
       const submitLoader = document.getElementById('submit-loader');
       
       submitBtn.disabled = true;
-      submitText.textContent = 'Posting...';
+      submitText.textContent = 'Menghantar...';
       submitLoader.classList.remove('hidden');
       
-      const newAd = {
-        id: Date.now().toString(),
+      // Data yang akan dihantar
+      const formData = {
         category: document.getElementById('ad-category').value,
         title: document.getElementById('ad-title').value,
         description: document.getElementById('ad-description').value,
@@ -506,17 +650,28 @@
         created_at: new Date().toISOString()
       };
       
-      const result = await window.dataSdk.create(newAd);
-      
-      submitBtn.disabled = false;
-      submitText.textContent = 'Post Ad';
-      submitLoader.classList.add('hidden');
-      
-      if (result.isOk) {
+      try {
+        // Hantar data ke Google Sheet
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors', 
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        // Paparkan mesej kejayaan
         closePostModal();
-        showToast('Your ad has been posted! 🎉');
-      } else {
-        showToast('Failed to post ad. Please try again.');
+        showToast('Iklan anda telah dihantar! 🎉 Iklan ada akan mula ditampal dalam masa 1- 2 hari.');
+        document.getElementById('ad-form').reset();
+
+      } catch (error) {
+        console.error('Error!', error.message);
+        showToast('Gagal menghantar iklan. Sila cuba lagi.');
+      } finally {
+        submitBtn.disabled = false;
+        submitText.textContent = 'Post Ad';
+        submitLoader.classList.add('hidden');
       }
     });
 
@@ -534,5 +689,4 @@
     }
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d1c912d34d3fc5d',t:'MTc3MTc0MzIxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-
 </html>
