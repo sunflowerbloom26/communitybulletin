@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Bulletin Board</title>
+  <title>Pasar Orang Melaka</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <script src="/_sdk/data_sdk.js"></script>
@@ -603,24 +603,34 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
     });
 
     document.getElementById('confirm-delete').addEventListener('click', async () => {
-      if (!currentViewingAd || !window.dataSdk) return;
-      
-      const btn = document.getElementById('confirm-delete');
-      btn.disabled = true;
-      btn.textContent = 'Deleting...';
-      
-      const result = await window.dataSdk.delete(currentViewingAd);
-      
-      btn.disabled = false;
-      btn.textContent = 'Yes, Delete';
-      
-      if (result.isOk) {
+    if (!currentViewingAd) return;
+    
+    const btn = document.getElementById('confirm-delete');
+    btn.disabled = true;
+    btn.textContent = 'Memadam...';
+    
+    // Kita hantar arahan delete ke Apps Script menggunakan Title iklan
+    const scriptURL = 'URL_WEB_APP_ANDA_DI_SINI';
+    const deleteURL = `${scriptURL}?action=delete&title=${encodeURIComponent(currentViewingAd.title)}`;
+
+    try {
+        await fetch(deleteURL, { mode: 'no-cors' });
+        
+        // Lepas padam di Sheet, kita sorok modal dan tunjukkan mesej
         closeViewModal();
-        showToast('Ad deleted successfully!');
-      } else {
-        showToast('Failed to delete ad. Please try again.');
-      }
-    });
+        showToast('Iklan berjaya dipadam! Sila refresh.');
+        
+        // Automatik refresh data lepas 2 saat
+        setTimeout(() => { location.reload(); }, 2000);
+        
+    } catch (error) {
+        console.error('Error deleting:', error);
+        showToast('Gagal padam. Sila cuba lagi.');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = 'Yes, Delete';
+    }
+});
 
     // Form submission
     document.getElementById('ad-form').addEventListener('submit', async (e) => {
