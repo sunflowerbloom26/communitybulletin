@@ -320,7 +320,7 @@
   container.innerHTML = '<div class="col-span-full text-center py-10 text-[#41431B] font-bold">⏳ Sedang menarik iklan dari Pasar Orang Melaka...</div>';
 
   // Gantikan dengan URL Web App baru dari Langkah 1
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxxkjx1yFhuPMp84pfeSku18vx0MhPRn2iG5ppF4rKY39l4RDP-a6CQ4a5GJfYI42R1xQ/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzkXdO-BJv1wLMBZDgQsejVOOceI1TbrDzc3HE1WdOk3Yk4I5pVqinsFvLJWX23QZIyuQ/exec';
   
   try {
     const response = await fetch(scriptURL);
@@ -610,7 +610,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
     btn.textContent = 'Memadam...';
     
     // Kita hantar arahan delete ke Apps Script menggunakan Title iklan
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxkjx1yFhuPMp84pfeSku18vx0MhPRn2iG5ppF4rKY39l4RDP-a6CQ4a5GJfYI42R1xQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzkXdO-BJv1wLMBZDgQsejVOOceI1TbrDzc3HE1WdOk3Yk4I5pVqinsFvLJWX23QZIyuQ/exec';
     const deleteURL = `${scriptURL}?action=delete&title=${encodeURIComponent(currentViewingAd.title)}`;
 
     try {
@@ -637,7 +637,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
       e.preventDefault();
       
       // Pastikan URL ini adalah URL Web App yang anda copy dari Google Apps Script
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbxxkjx1yFhuPMp84pfeSku18vx0MhPRn2iG5ppF4rKY39l4RDP-a6CQ4a5GJfYI42R1xQ/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzkXdO-BJv1wLMBZDgQsejVOOceI1TbrDzc3HE1WdOk3Yk4I5pVqinsFvLJWX23QZIyuQ/exec';
       
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
@@ -700,4 +700,5 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d1c912d34d3fc5d',t:'MTc3MTc0MzIxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
