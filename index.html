@@ -142,10 +142,17 @@
 
   <div class="grid grid-cols-2 gap-4">
     <div>
-      <label for="ad-price" class="block text-[#41431B] font-bold mb-1 text-sm">Price</label>
-      <span class="absolute left-4 text-gray-500 font-bold pointer-events-none">RM</span>
-      <input type="text" id="ad-price" placeholder="Masukkan angka sahaja (e.g, 50 atau 10.50)" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
-    </div>
+  <label for="ad-price" class="block text-[#41431B] font-bold mb-1 text-sm">Price *</label>
+  <div class="flex rounded-lg shadow-sm overflow-hidden border-2 border-gray-200 focus-within:border-[#AEB784] transition-all">
+    <span class="flex items-center px-4 bg-gray-100 text-gray-600 font-bold text-sm border-r border-gray-200">
+      RM
+    </span>    
+    <input type="text" id="ad-price" required 
+           placeholder="Masukkan angka sahaja (contoh: 50)" 
+           class="w-full px-4 py-2.5 outline-none text-gray-800 text-sm"
+           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+  </div>
+</div>
     <div>
       <label for="ad-location" class="block text-[#41431B] font-bold mb-1 text-sm">Location</label>
       <input type="text" id="ad-location" placeholder="e.g., Taman Nuri" class="w-full px-4 py-2.5 rounded-lg border-2 border-gray-200 focus:border-[#AEB784] focus:outline-none text-gray-800">
@@ -198,7 +205,6 @@
   <div id="view-image-container" class="hidden mb-4 rounded-xl overflow-hidden border-2 border-amber-200 shadow-sm">
     <img id="view-image" src="" alt="Ad Image" class="w-full h-auto object-cover max-h-64" loading="lazy">
   </div>
-  <h3 id="view-title" class="text-xl font-extrabold text-amber-900 mb-3">Ad Title</h3>
      <div class="p-6">
       <h3 id="view-title" class="text-xl font-extrabold text-amber-900 mb-3">Ad Title</h3>
       <p id="view-description" class="text-amber-700 mb-4 leading-relaxed">Description goes here...</p>
@@ -332,7 +338,7 @@
   container.innerHTML = '<div class="col-span-full text-center py-10 text-[#41431B] font-bold">⏳ Sedang menarik iklan dari Pasar Orang Melaka...</div>';
 
   // Gantikan dengan URL Web App baru dari Langkah 1
-  const scriptURL = 'https://script.google.com/macros/s/AKfycby1wyZtEjvhLMdUaPQ-0-RwyCLrLJcfPO3ePKk3nhlujRUDZlggI-_Yo2HqFO2URZpedw/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxWKh1O-xm3CFXO8b8a66v3vN0yFO9bTS6jLv2THs-YFB9wNnOqZejtH-DCucx4x08N/exec';
   
   try {
     const response = await fetch(scriptURL);
@@ -633,7 +639,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
     btn.textContent = 'Memadam...';
     
     // Kita hantar arahan delete ke Apps Script menggunakan Title iklan
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby1wyZtEjvhLMdUaPQ-0-RwyCLrLJcfPO3ePKk3nhlujRUDZlggI-_Yo2HqFO2URZpedw/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxWKh1O-xm3CFXO8b8a66v3vN0yFO9bTS6jLv2THs-YFB9wNnOqZejtH-DCucx4x08N/exec';
     const deleteURL = `${scriptURL}?action=delete&title=${encodeURIComponent(currentViewingAd.title)}`;
 
     try {
@@ -668,7 +674,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
       e.preventDefault();
       
       // Pastikan URL ini adalah URL Web App yang anda copy dari Google Apps Script
-      const scriptURL = 'https://script.google.com/macros/s/AKfycby1wyZtEjvhLMdUaPQ-0-RwyCLrLJcfPO3ePKk3nhlujRUDZlggI-_Yo2HqFO2URZpedw/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxWKh1O-xm3CFXO8b8a66v3vN0yFO9bTS6jLv2THs-YFB9wNnOqZejtH-DCucx4x08N/exec';
       
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
