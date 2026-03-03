@@ -205,8 +205,7 @@
   <div id="view-image-container" class="hidden mb-4 rounded-xl overflow-hidden border-2 border-amber-200 shadow-sm">
     <img id="view-image" src="" alt="Ad Image" class="w-full h-auto object-cover max-h-64" loading="lazy">
   </div>
-     <div class="p-6">
-      <h3 id="view-title" class="text-xl font-extrabold text-amber-900 mb-3">Ad Title</h3>
+  <h3 id="view-title" class="text-xl font-extrabold text-amber-900 mb-3">Ad Title</h3>
       <p id="view-description" class="text-amber-700 mb-4 leading-relaxed">Description goes here...</p>
       <div class="grid grid-cols-2 gap-3 mb-4">
        <div id="view-price-box" class="bg-emerald-100 rounded-lg p-3">
@@ -338,7 +337,7 @@
   container.innerHTML = '<div class="col-span-full text-center py-10 text-[#41431B] font-bold">⏳ Sedang menarik iklan dari Pasar Orang Melaka...</div>';
 
   // Gantikan dengan URL Web App baru dari Langkah 1
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxWKh1O-xm3CFXO8b8a66v3vN0yFO9bTS6jLv2THs-YFB9wNnOqZejtH-DCucx4x08N/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxRdr_FTcH4h2hGrOy6MbeIsdofIFQQmW5p6hYD09-rzz-SCgRCQVrjdVgrIeaeKnHcKw/exec';
   
   try {
     const response = await fetch(scriptURL);
@@ -524,13 +523,13 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
   const imgContainer = document.getElementById('view-image-container');
   const imgElement = document.getElementById('view-image');
   
-  if (ad.imageUrl && ad.imageUrl.includes('http')) {
-      imgElement.src = ad.image_url;
-      imgContainer.classList.remove('hidden');
-  } else {
-      imgContainer.classList.add('hidden');
-      imgElement.src = '';
-  }
+  if (ad.image_url && ad.image_url.includes('http')) {
+    imgElement.src = ad.image_url;
+    imgContainer.classList.remove('hidden');
+} else {
+    imgContainer.classList.add('hidden');
+    imgElement.src = '';
+}
 
       document.getElementById('view-category-icon').textContent = cat.icon;
       document.getElementById('view-category-name').textContent = cat.name;
@@ -550,33 +549,30 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
       }
       
 // --- BAHAGIAN WHATSAPP ---
-    const phone = ad.phone ? ad.phone.toString() : '';
-    // Buang simbol bukan nombor (seperti +, - atau ruang)
-    const cleanPhone = phone.replace(/\D/g, '');
-    // Tambah kod negara 60 jika pengguna tak masukkan
-    const whatsappPhone = cleanPhone.startsWith('60') ? cleanPhone : '60' + cleanPhone;
-    
-    const phoneElement = document.getElementById('view-contact-phone');
-    if (phone) {
-        phoneElement.innerHTML = `<a href="https://wa.me/${whatsappPhone}" target="_blank" class="text-emerald-700 decoration-2 font-bold hover:text-emerald-900 transition-all">
-            ${phone} (Klik untuk WhatsApp)
-        </a>`;
-    } else {
-        phoneElement.textContent = 'Tiada Nombor';
-    }
+const phone = ad.contact_phone ? ad.contact_phone.toString() : ''; // Guna contact_phone ikut header
+const cleanPhone = phone.replace(/\D/g, '');
+const whatsappPhone = cleanPhone.startsWith('60') ? cleanPhone : '60' + cleanPhone;
 
-    // --- BAHAGIAN GOOGLE MAPS ---
-    const location = ad.location || '';
-    const locationElement = document.getElementById('view-location');
-    if (location && location !== '-') {
-        // Encode lokasi supaya selamat masuk dalam URL
-        const encodedLocation = encodeURIComponent(location + " Melaka");
-        locationElement.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodedLocation}" target="_blank" class="text-blue-700 decoration-2 font-bold hover:text-blue-900 transition-all">
-            📍 ${location} (Klik untuk ke Google Maps)
-        </a>`;
-    } else {
-        locationElement.textContent = 'Tidak Dinyatakan';
-    }
+const phoneElement = document.getElementById('view-contact-phone');
+if (cleanPhone) {
+    phoneElement.innerHTML = `<a href="https://wa.me/${whatsappPhone}" target="_blank" class="text-emerald-700 underline font-bold hover:text-emerald-900 transition-all">
+        ${phone} (Klik untuk WhatsApp)
+    </a>`;
+} else {
+    phoneElement.textContent = 'Tiada Nombor';
+}
+
+   // --- BAHAGIAN GOOGLE MAPS ---
+const loc = ad.location || '';
+const locationElement = document.getElementById('view-location');
+if (loc && loc !== '-') {
+    const encodedLocation = encodeURIComponent(loc + " Melaka");
+    locationElement.innerHTML = `<a href="https://www.google.com/maps/search/?api=1&query=${encodedLocation}" target="_blank" class="text-blue-700 underline font-bold hover:text-blue-900 transition-all">
+        📍 ${loc} (Klik untuk Maps)
+    </a>`;
+} else {
+    locationElement.textContent = 'Tidak Dinyatakan';
+}
 
       const date = new Date(ad.created_at);
       document.getElementById('view-date').textContent = `Posted on: ${date.toLocaleDateString('en-US', { 
@@ -639,7 +635,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
     btn.textContent = 'Memadam...';
     
     // Kita hantar arahan delete ke Apps Script menggunakan Title iklan
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxWKh1O-xm3CFXO8b8a66v3vN0yFO9bTS6jLv2THs-YFB9wNnOqZejtH-DCucx4x08N/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxRdr_FTcH4h2hGrOy6MbeIsdofIFQQmW5p6hYD09-rzz-SCgRCQVrjdVgrIeaeKnHcKw/exec';
     const deleteURL = `${scriptURL}?action=delete&title=${encodeURIComponent(currentViewingAd.title)}`;
 
     try {
@@ -674,7 +670,7 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
       e.preventDefault();
       
       // Pastikan URL ini adalah URL Web App yang anda copy dari Google Apps Script
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbxWKh1O-xm3CFXO8b8a66v3vN0yFO9bTS6jLv2THs-YFB9wNnOqZejtH-DCucx4x08N/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxRdr_FTcH4h2hGrOy6MbeIsdofIFQQmW5p6hYD09-rzz-SCgRCQVrjdVgrIeaeKnHcKw/exec';
       
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
