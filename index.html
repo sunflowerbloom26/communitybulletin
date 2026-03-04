@@ -225,6 +225,27 @@
         <p id="view-email-row" class="flex items-center gap-2 text-amber-900"><span>✉️</span> <span id="view-contact-email" class="font-semibold">Email</span></p>
        </div>
       </div>
+
+      <div class="mt-6 pt-4 border-t border-amber-200">
+    <div class="flex items-center justify-between">
+        <div>
+            <p class="text-xs font-bold text-amber-800 mb-1 text-uppercase">Berikan Rating</p>
+            <div id="star-rating" class="flex gap-1 text-2xl">
+                <button onclick="sendFeedback('rating', 1)" class="hover:scale-110 transition">⭐</button>
+                <button onclick="sendFeedback('rating', 2)" class="hover:scale-110 transition">⭐</button>
+                <button onclick="sendFeedback('rating', 3)" class="hover:scale-110 transition">⭐</button>
+                <button onclick="sendFeedback('rating', 4)" class="hover:scale-110 transition">⭐</button>
+                <button onclick="sendFeedback('rating', 5)" class="hover:scale-110 transition">⭐</button>
+            </div>
+        </div>
+        
+        <button onclick="sendFeedback('report')" class="bg-red-100 text-red-600 px-3 py-1 rounded-md text-[10px] font-bold hover:bg-red-200 transition">
+            🚩 Report Iklan
+        </button>
+    </div>
+    <p id="feedback-msg" class="text-[10px] text-emerald-600 mt-2 hidden">Terima kasih atas maklum balas anda!</p>
+</div>
+
       <p id="view-date" class="text-amber-500 text-xs text-center mb-4">Posted on: -</p>
       <div class="flex gap-3"><button id="view-close-btn" class="flex-1 px-4 py-3 rounded-lg border-2 border-amber-300 text-amber-700 font-bold hover:bg-amber-100 transition-all">Close</button> <button id="view-delete-btn" class="px-4 py-3 rounded-lg bg-red-500 hover:bg-red-600 text-white font-bold transition-all">🗑️ Delete</button>
       </div><!-- Delete Confirmation -->
@@ -337,7 +358,7 @@
   container.innerHTML = '<div class="col-span-full text-center py-10 text-[#41431B] font-bold">⏳ Sedang menarik iklan dari Pasar Orang Melaka...</div>';
 
   // Gantikan dengan URL Web App baru dari Langkah 1
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwpEOKoEawv5AA2GHKZWPQ4r7A33iDNdtqk9f37n2aNqX1SekPpi2aBOnyDngwhhS7Zyw/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwrY4HLg0cRzHGt9PFZRfG8WrBEvef9S7w0yXUgEhujPc7G8Ph_HlVHSUrwoyICPvbdEw/exec';
   
   try {
     const response = await fetch(scriptURL);
@@ -519,18 +540,6 @@ document.querySelector('[data-category="all"]').classList.add('border-[#AEB784]'
       currentViewingAd = ad;
       const cat = categoryInfo[ad.category] || categoryInfo.others;
       
-// --- LOGIK PAPARKAN GAMBAR ---
-  const imgContainer = document.getElementById('view-image-container');
-  const imgElement = document.getElementById('view-image');
-  
-  if (ad.image_url && ad.image_url.includes('http')) {
-    imgElement.src = ad.image_url;
-    imgContainer.classList.remove('hidden');
-} else {
-    imgContainer.classList.add('hidden');
-    imgElement.src = '';
-}
-
       document.getElementById('view-category-icon').textContent = cat.icon;
       document.getElementById('view-category-name').textContent = cat.name;
       document.getElementById('view-title').textContent = ad.title;
@@ -599,6 +608,32 @@ if (loc && loc !== '-') {
     viewModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 }
+
+// Letak kat dalam bahagian <script> ni
+async function sendFeedback(type, value = 0) {
+    if(!currentViewingAd) return;
+
+    const msg = document.getElementById('feedback-msg');
+    msg.classList.remove('hidden');
+    msg.textContent = type === 'rating' ? "Rating berjaya dihantar! ⭐" : "Iklan telah direport kepada admin. 🚩";
+
+    // Pastikan variable scriptURL dah ada dalam index.html Farah
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify({
+                action: 'feedback',
+                type: type,
+                title: currentViewingAd.title, 
+                value: value
+            })
+        });
+    } catch (e) {
+        console.log("Feedback sent");
+    }
+
+    setTimeout(() => msg.classList.add('hidden'), 2000);
+}
   
 
     function closeViewModal() {
@@ -635,7 +670,7 @@ if (loc && loc !== '-') {
     btn.textContent = 'Memadam...';
     
     // Kita hantar arahan delete ke Apps Script menggunakan Title iklan
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwpEOKoEawv5AA2GHKZWPQ4r7A33iDNdtqk9f37n2aNqX1SekPpi2aBOnyDngwhhS7Zyw/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwrY4HLg0cRzHGt9PFZRfG8WrBEvef9S7w0yXUgEhujPc7G8Ph_HlVHSUrwoyICPvbdEw/exec';
     const deleteURL = `${scriptURL}?action=delete&title=${encodeURIComponent(currentViewingAd.title)}`;
 
     try {
@@ -670,7 +705,7 @@ if (loc && loc !== '-') {
       e.preventDefault();
       
       // Pastikan URL ini adalah URL Web App yang anda copy dari Google Apps Script
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwpEOKoEawv5AA2GHKZWPQ4r7A33iDNdtqk9f37n2aNqX1SekPpi2aBOnyDngwhhS7Zyw/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwrY4HLg0cRzHGt9PFZRfG8WrBEvef9S7w0yXUgEhujPc7G8Ph_HlVHSUrwoyICPvbdEw/exec';
       
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
@@ -744,4 +779,3 @@ if (loc && loc !== '-') {
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d1c912d34d3fc5d',t:'MTc3MTc0MzIxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
